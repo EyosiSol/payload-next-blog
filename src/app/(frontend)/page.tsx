@@ -1,9 +1,3 @@
-
-
 export default async function HomePage() {
- 
-
-  return (
-   <></>
-  )
+  return <>Hola</>
 }
