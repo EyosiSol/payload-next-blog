@@ -6,11 +6,11 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
 import { Users } from './collections/Users'
-import { Media } from './collections/Media'
+import { Media } from './collections/Media/Config'
 import { Article } from './collections/Articles/Config'
 
 import { env } from './lib/env'
-import { ArticleAuthors } from './collections/ArticleAuthors'
+import { ArticleAuthors } from './collections/ArticleAuthors/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
