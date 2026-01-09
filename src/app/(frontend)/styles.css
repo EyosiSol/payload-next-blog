@@ -1,7 +1,18 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
-@layer base{
-    body{
-        background-color: #131119;
-    }
+@theme {
+  --color-dimmed: #9ca3af;
+}
+
+@layer base {
+  body {
+    @apply text-gray-100;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto h-full max-w-6xl px-3;
+  }
 }
