@@ -1,7 +1,8 @@
 import { getPayloadClient } from '@/lib/payload/client'
-import { STATUS_OPTIONS } from './constants'
+import { CACHE_TAG_ARTICLES, STATUS_OPTIONS } from './constants'
+import { unstable_cache } from 'next/cache'
 
-export default async function getPublishedArticles() {
+async function _getPublishedArticles() {
   const payload = await getPayloadClient()
   try {
     const { docs: articles } = await payload.find({
@@ -27,4 +28,11 @@ export default async function getPublishedArticles() {
     console.error('Failed to Fetch Articles', error)
     return []
   }
+}
+
+export function getPublishedArticles() {
+  return unstable_cache(_getPublishedArticles, [], {
+    tags: [CACHE_TAG_ARTICLES],
+    revalidate: 3600,
+  })()
 }

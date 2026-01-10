@@ -2,7 +2,8 @@ import { CollectionConfig } from 'payload'
 import { generateSlugHook } from './hooks/generate-slug-hook'
 import generateContentSummaryHook from './hooks/generate-contentSummary-hook'
 import { convertLexicalToPlaintext } from '@payloadcms/richtext-lexical/plaintext'
-import { STATUS_OPTIONS } from './constants'
+import { CACHE_TAG_ARTICLES, STATUS_OPTIONS } from './constants'
+import { revalidateTag } from 'next/cache'
 
 export const Article: CollectionConfig = {
   slug: 'articles',
@@ -79,5 +80,8 @@ export const Article: CollectionConfig = {
       },
     },
   ],
+  hooks: {
+    afterChange: [() => revalidateTag(CACHE_TAG_ARTICLES)],
+  },
   timestamps: true,
 }

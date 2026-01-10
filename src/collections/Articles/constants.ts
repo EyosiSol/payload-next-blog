@@ -6,3 +6,4 @@ export const STATUS_OPTIONS = {
 } as const
 
 export const CACHE_TAG_ARTICLES = 'articles'
+

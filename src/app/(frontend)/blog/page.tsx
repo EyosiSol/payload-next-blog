@@ -1,4 +1,4 @@
-import getPublishedArticles from '@/collections/Articles/fetchers'
+import { getPublishedArticles } from '@/collections/Articles/fetchers'
 import { ArticleCard } from './_components/article-card'
 import { relationIsObject } from '@/lib/payload/helpers/relation-to-object'
 
