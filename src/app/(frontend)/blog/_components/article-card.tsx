@@ -37,7 +37,7 @@ export function ArticleCard({
           height={300}
           className="h-50 object-cover object-center w-full"
           placeholder="blur"
-          blurDataURL={coverImage.blurDataUrl}
+          blurDataURL={coverImage.blurDataUrl ?? ''}
         />
 
         {/* content */}
