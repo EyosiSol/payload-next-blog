@@ -1,7 +1,7 @@
 import { getPayloadClient } from '@/lib/payload/client'
 import { STATUS_OPTIONS } from './constants'
 
-export default async function getArticles() {
+export default async function getPublishedArticles() {
   const payload = await getPayloadClient()
   try {
     const { docs: articles } = await payload.find({
